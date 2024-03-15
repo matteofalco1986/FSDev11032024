@@ -164,6 +164,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\GoodsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -174,10 +175,28 @@
     <Compile Include="Migrations\202403141806293_RequiredFieldsForGoodsAdd.designer.cs">
       <DependentUpon>202403141806293_RequiredFieldsForGoodsAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202403142115415_OrdersFieldsUpdated.cs" />
+    <Compile Include="Migrations\202403142115415_OrdersFieldsUpdated.designer.cs">
+      <DependentUpon>202403142115415_OrdersFieldsUpdated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403142323513_AddManyToManyRelationship.cs" />
+    <Compile Include="Migrations\202403142323513_AddManyToManyRelationship.designer.cs">
+      <DependentUpon>202403142323513_AddManyToManyRelationship.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403142326321_AddManyToManyRelationship2.cs" />
+    <Compile Include="Migrations\202403142326321_AddManyToManyRelationship2.designer.cs">
+      <DependentUpon>202403142326321_AddManyToManyRelationship2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403142337377_DropGoodIdOnOrdersTab.cs" />
+    <Compile Include="Migrations\202403142337377_DropGoodIdOnOrdersTab.designer.cs">
+      <DependentUpon>202403142337377_DropGoodIdOnOrdersTab.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\DBContext.cs" />
     <Compile Include="Models\Good.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderGood.cs" />
     <Compile Include="Models\RoleManager.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -254,6 +273,9 @@
     <Content Include="Views\Goods\Details.cshtml" />
     <Content Include="Views\Goods\Edit.cshtml" />
     <Content Include="Views\Goods\Index.cshtml" />
+    <Content Include="Views\Goods\Menu.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\DeleteItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -332,6 +354,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202403141806293_RequiredFieldsForGoodsAdd.resx">
       <DependentUpon>202403141806293_RequiredFieldsForGoodsAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403142115415_OrdersFieldsUpdated.resx">
+      <DependentUpon>202403142115415_OrdersFieldsUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403142323513_AddManyToManyRelationship.resx">
+      <DependentUpon>202403142323513_AddManyToManyRelationship.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403142326321_AddManyToManyRelationship2.resx">
+      <DependentUpon>202403142326321_AddManyToManyRelationship2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403142337377_DropGoodIdOnOrdersTab.resx">
+      <DependentUpon>202403142337377_DropGoodIdOnOrdersTab.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

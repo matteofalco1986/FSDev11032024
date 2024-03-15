@@ -15,13 +15,17 @@ namespace Pizzeria.Controllers
     {
         private DBContext db = new DBContext();
 
-        // GET: Goods
+        // GET
+
+        [HttpGet]
+        [Authorize(Roles = "admin")]
         public ActionResult Index()
         {
             return View(db.Goods.ToList());
         }
 
-        // GET: Goods/Details/5
+        [HttpGet]
+        [Authorize(Roles = "admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,16 +40,16 @@ namespace Pizzeria.Controllers
             return View(good);
         }
 
+        // CREATE
+
+        [HttpGet]
         [Authorize(Roles = "admin")]
-        // GET: Goods/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Goods/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [Authorize(Roles = "admin")]
         [ValidateAntiForgeryToken]
@@ -55,13 +59,16 @@ namespace Pizzeria.Controllers
             {
                 db.Goods.Add(good);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Goods");
             }
 
             return View(good);
         }
 
-        // GET: Goods/Edit/5
+        // EDIT
+
+        [HttpGet]
+        [Authorize(Roles = "admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -76,10 +83,8 @@ namespace Pizzeria.Controllers
             return View(good);
         }
 
-        // POST: Goods/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "GoodId,Name,Image,Price,Ingredients")] Good good)
         {
@@ -92,7 +97,11 @@ namespace Pizzeria.Controllers
             return View(good);
         }
 
-        // GET: Goods/Delete/5
+
+        // DELETE
+
+        [HttpGet]
+        [Authorize(Roles = "admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -107,8 +116,8 @@ namespace Pizzeria.Controllers
             return View(good);
         }
 
-        // POST: Goods/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "admin")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
@@ -118,6 +127,15 @@ namespace Pizzeria.Controllers
             return RedirectToAction("Index");
         }
 
+        // GET USER
+
+        [HttpGet]
+        public ActionResult Menu()
+        {
+            return View(db.Goods.ToList());
+        }
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -126,5 +144,8 @@ namespace Pizzeria.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+
     }
 }

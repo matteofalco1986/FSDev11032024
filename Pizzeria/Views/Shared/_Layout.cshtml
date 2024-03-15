@@ -25,11 +25,12 @@
                     {
                         if (User.IsInRole("admin"))
                         {
-                            <li>@Html.ActionLink("Aggiungi un elemento al menu", "Create", "Goods", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Menu", "Index", "Goods", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Aggiungi una pizza", "Create", "Goods", new { area = "" }, new { @class = "nav-link" })</li>
                         }
                         else if (User.IsInRole("user"))
                         {
-                            <li class="nav-link">UserLoggedIn</li>
+                            <li>@Html.ActionLink("Menu", "Menu", "Goods", new { area = "" }, new { @class = "nav-link" })</li>
                         }
 
                         <li>

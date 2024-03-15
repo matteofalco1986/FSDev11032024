@@ -5,13 +5,15 @@ namespace Pizzeria.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Diagnostics.Eventing.Reader;
+
 
     public partial class Good
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Good()
         {
-            Orders = new HashSet<Order>();
+            this.Orders = new HashSet<Order>();
         }
 
         [Key]
@@ -36,7 +38,6 @@ namespace Pizzeria.Models
         [StringLength(2500)]
         public string Ingredients { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
     }
 }
