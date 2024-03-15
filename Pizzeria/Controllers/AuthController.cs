@@ -35,8 +35,9 @@ namespace Pizzeria.Controllers
                 TempData["ErrorLogin"] = true;
                 return RedirectToAction("Login", "Auth");
             }
+            Cart.LoggedInUserId = loggedUser.UserId;
             FormsAuthentication.SetAuthCookie(loggedUser.UserId.ToString(), true);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Menu", "Goods");
         }
 
         [Authorize]

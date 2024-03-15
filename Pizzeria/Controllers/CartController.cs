@@ -10,6 +10,8 @@ namespace Pizzeria.Controllers
 {
     public class CartController : Controller
     {
+        private DBContext db = new DBContext();
+
         [HttpPost]
         [Authorize(Roles = "user")]
         [ValidateAntiForgeryToken]
@@ -29,6 +31,7 @@ namespace Pizzeria.Controllers
         [Authorize(Roles = "user")]
         public ActionResult Index()
         {
+            Cart.PopulateDictionary();
             return View();
         }
 
@@ -57,9 +60,27 @@ namespace Pizzeria.Controllers
 
         }
 
+        [HttpGet]
+        [Authorize(Roles = "user")]
         public ActionResult Checkout()
         {
-            return View(Cart.ShoppingCart);
+            ViewBag.ShoppingCartCheckout = Cart.ShoppingCartDictionary;
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "user")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Checkout(Order order)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Orders.Add(order);
+                db.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View(order);
         }
     }
 }
