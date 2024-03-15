@@ -10,6 +10,7 @@ namespace Pizzeria.Models
         public DBContext()
             : base("name=DBContext")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
         public virtual DbSet<Good> Goods { get; set; }

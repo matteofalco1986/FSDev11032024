@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Pizzeria.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>ELENCO ORDINI</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Nome
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeliveryAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Evaso)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeliveryAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+
+            @if (item.Evaso == true)
+            {
+                <td>SI</td>
+            }
+            else
+            {
+                <td>NO</td>
+            }
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.OrderId }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -17,7 +17,7 @@ namespace Pizzeria.Models
             ShoppingCartDictionary.Clear();
             foreach (var item in ShoppingCart)
             {
-                if(!ShoppingCartDictionary.ContainsKey(item.GoodId))
+                if (!ShoppingCartDictionary.ContainsKey(item.GoodId))
                 {
                     ShoppingCartDictionary.Add(item.GoodId, 1);
                 }
@@ -28,6 +28,10 @@ namespace Pizzeria.Models
             }
         }
 
-
+        public static void ClearAll()
+        {
+            ShoppingCartDictionary.Clear();
+            ShoppingCart.Clear();
+        }
     }
 }

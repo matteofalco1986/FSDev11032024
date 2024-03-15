@@ -167,6 +167,7 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\GoodsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -190,6 +191,10 @@
     <Compile Include="Migrations\202403142337377_DropGoodIdOnOrdersTab.cs" />
     <Compile Include="Migrations\202403142337377_DropGoodIdOnOrdersTab.designer.cs">
       <DependentUpon>202403142337377_DropGoodIdOnOrdersTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403151544261_VediamoSeFunziona.cs" />
+    <Compile Include="Migrations\202403151544261_VediamoSeFunziona.designer.cs">
+      <DependentUpon>202403151544261_VediamoSeFunziona.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -277,6 +282,13 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\DeleteItem.cshtml" />
     <Content Include="Views\Cart\Checkout.cshtml" />
+    <Content Include="Views\Home\Thanks.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Home\RichiesteAsincrone.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -367,6 +379,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202403142337377_DropGoodIdOnOrdersTab.resx">
       <DependentUpon>202403142337377_DropGoodIdOnOrdersTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403151544261_VediamoSeFunziona.resx">
+      <DependentUpon>202403151544261_VediamoSeFunziona.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Caching;
 using System.Web.Mvc;
+using Pizzeria.Migrations;
 using Pizzeria.Models;
 
 namespace Pizzeria.Controllers
@@ -75,9 +76,23 @@ namespace Pizzeria.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Aggiungere ordine
                 db.Orders.Add(order);
+                foreach(var pair in Cart.ShoppingCartDictionary)
+                {
+                    var orderGoodsToAdd = new OrderGood()
+                    {
+                        OrderId = Convert.ToInt32(order.OrderId),
+                        GoodId = Convert.ToInt32(pair.Key),
+                        Quantity = Convert.ToInt32(pair.Value)
+                    };
+                    db.OrderGoods.Add(orderGoodsToAdd);
+                }
                 db.SaveChanges();
-                return RedirectToAction("Index", "Home");
+
+                // Svuotare carrello e dizionario
+                Cart.ClearAll();
+                return RedirectToAction("Thanks", "Home");
             }
 
             return View(order);

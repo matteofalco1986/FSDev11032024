@@ -27,6 +27,8 @@
                         {
                             <li>@Html.ActionLink("Menu", "Index", "Goods", new { area = "" }, new { @class = "nav-link" })</li>
                             <li>@Html.ActionLink("Aggiungi una pizza", "Create", "Goods", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Elenco ordini", "Index", "Orders", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Richieste Asincrone", "RichiesteAsincrone", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                         }
                         else if (User.IsInRole("user"))
                         {

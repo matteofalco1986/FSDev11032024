@@ -93,3 +93,4 @@ C:\Users\matte\Documents\Epicode\Pizzeria\Pizzeria\obj\Debug\Pizzeria.Migrations
 C:\Users\matte\Documents\Epicode\Pizzeria\Pizzeria\obj\Debug\Pizzeria.Migrations.AddManyToManyRelationship.resources
 C:\Users\matte\Documents\Epicode\Pizzeria\Pizzeria\obj\Debug\Pizzeria.Migrations.AddManyToManyRelationship2.resources
 C:\Users\matte\Documents\Epicode\Pizzeria\Pizzeria\obj\Debug\Pizzeria.Migrations.DropGoodIdOnOrdersTab.resources
+C:\Users\matte\Documents\Epicode\Pizzeria\Pizzeria\obj\Debug\Pizzeria.Migrations.VediamoSeFunziona.resources

@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "RichiesteAsincrone";
+}
+
+
+<h1 class="text-center m-5">RICHIESTE ASINCRONE</h1>
+<div class="d-flex flex-column gap-3 align-items-center">
+    <div class="d-flex gap-5 align-items-center m-5">
+        <button class="btn btn-success ordini-evasi-btn p-4">NUMERO ORDINI EVASI</button>
+        <div style="border-radius: 20px; padding: 20px; border: 3px solid red">
+            <h6 class="ordini-evasi-text"></h6>
+        </div>
+    </div>
+    <div class="d-flex gap-5 align-items-center m-5">
+        <button class="btn btn-success totale-incasso-btn p-4">Totale incassi giornata</button>
+        <div style="border-radius: 20px; padding: 20px; border: 3px solid red">
+            <h6 class="totale-incasso-text"></h6>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    let numeroEvasiBtn = document.querySelector(".ordini-evasi-btn");
+    let ordiniEvasiText = document.querySelector(".ordini-evasi-text");
+    let totaleIncassatoBtn = document.querySelector(".totale-incasso-btn");
+    let totaleIncassatoText = document.querySelector(".totale-incasso-text");
+    let ordiniEvasi = 0;
+    let totaleIncassato = 0;
+
+
+    numeroEvasiBtn.addEventListener("click", () => {
+        fetch("https://localhost:44322/Orders/OrdiniEvasi")
+            .then(res => res.json())
+            .then(data => {
+                ordiniEvasi = 0;
+                for (let i = 0; i < data.length; i++) {
+                    ++ordiniEvasi;
+                }
+                console.log(data)
+                ordiniEvasiText.textContent = ordiniEvasi;
+            })
+
+    })
+
+    totaleIncassatoBtn.addEventListener("click", () => {
+        fetch("https://localhost:44322/Orders/TotaleIncassato")
+            .then(res => res.json())
+            .then(data => {
+                totaleIncassato = 0;
+                console.log(data)
+                totaleIncassatoText.textContent = "Questo non ho fatto in tempo a finirlo";
+            })
+
+    })
+
+
+
+</script>

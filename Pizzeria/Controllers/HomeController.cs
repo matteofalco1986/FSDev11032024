@@ -18,5 +18,19 @@ namespace Pizzeria.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        [Authorize(Roles = "user")]
+        public ActionResult Thanks()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "admin")]
+        public ActionResult RichiesteAsincrone()
+        {
+            return View();
+        }
     }
 }
